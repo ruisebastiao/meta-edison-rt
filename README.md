@@ -6,8 +6,6 @@ This is very much a work in progress.
 
 Specific additions are:
 
-    IMAGE_INSTALL += "pulseaudio"
-    IMAGE_INSTALL += "pulseaudio-server"
     IMAGE_INSTALL += "bison"
     IMAGE_INSTALL += "coreutils"
     IMAGE_INSTALL += "git"
@@ -24,8 +22,6 @@ Specific additions are:
     IMAGE_INSTALL += "packagegroup-core-qt4e"
     IMAGE_INSTALL += "cmake"
     
-pulseaudio doesn't seem to be set up correctly at this point. That's a TODO.
-
 ### Installation
 
 Using "..." to represent the install directory of the Edison source:
@@ -51,17 +47,13 @@ Add a line to the layers so that the BBLAYERS variable looks like this:
         \
         "
         
- The result will be too big to fit in the standard 512Mb rootfs. This must be increased.
- 
- To do this, a couple of files need to be edited.
- 
- Edit the file:
+Edit the file:
 
     .../edison-src/device-software/meta-edison-distro/recipes-core/images/edison-image.bb
     
 There’s an entry for IMAGE_ROOTFS_SIZE. Change this line to be:
 
-    IMAGE_ROOTFS_SIZE = "1048576"
+    IMAGE_ROOTFS_SIZE = "1572864"
     
 Then the usual "bitbake edison-image" should work and add the new features.
 
