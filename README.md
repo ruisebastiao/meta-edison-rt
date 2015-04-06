@@ -43,17 +43,11 @@ Add a line to the layers so that the BBLAYERS variable looks like this:
         /home/syntro/work/edison/edison-src/device-software/meta-edison-distro \
         /home/syntro/work/edison/edison-src/device-software/meta-edison-middleware \
         /home/syntro/work/edison/edison-src/device-software/meta-edison-arduino \
+        /home/syntro/work/edison/edison-src/device-software/meta-edison-devtools \
         /home/syntro/work/edison/edison-src/device-software/meta-edison-rt \
         \
         "
         
-Edit the file:
-
-    .../edison-src/device-software/meta-edison-distro/recipes-core/images/edison-image.bb
-    
-There’s an entry for IMAGE_ROOTFS_SIZE. Change this line to be:
-
-    IMAGE_ROOTFS_SIZE = "1572864"
     
 Then the usual "bitbake edison-image" should work and add the new features.
 
